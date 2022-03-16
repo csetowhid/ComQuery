@@ -8,7 +8,13 @@
         <meta name="description" content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
         <meta name="keywords" content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
         <meta name="author" content="LEFT4CODE">
-        <title>Dashboard - Midone - Tailwind HTML Admin Template</title>
+        <title>
+            @isset($title)
+                {{$title}} | {{config('app.name') }}
+            @else
+                {{ config('app.name') }}
+            @endisset
+        </title>
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{{asset('backend/css/app.css')}}" />
         <!-- END: CSS Assets-->
@@ -494,17 +500,17 @@
                 <div class="side-nav__devider my-6"></div>
                 <ul>
                     <li>
-                        <a href="{{route('dashboard')}}" class="side-menu side-menu--active">
+                        <a href="{{route('dashboard')}}" class="side-menu {{ (request()->is('dashboard')) ? 'side-menu--active' : '' }}">
                             <div class="side-menu__icon"> <i data-feather="home"></i> </div>
                             <div class="side-menu__title"> Dashboard </div>
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:;" class="side-menu">
+                        <a href="#" class="side-menu {{ (request()->is(['permission*','roles*'])) ? 'side-menu--active' : '' }} ">
                             <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                             <div class="side-menu__title"> Role Management <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
                         </a>
-                        <ul class="">
+                        <ul class="{{ (request()->is(['permission*','roles*'])) ? 'side-menu__sub-open' : '' }}">
                             <li>
                                 <a href="index.html" class="side-menu">
                                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
@@ -512,7 +518,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="simple-menu-dashboard.html" class="side-menu">
+                                <a href="{{route('permission.index')}}" class="side-menu {{ (request()->is('permission*')) ? 'side-menu--active' : '' }}">
                                     <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                                     <div class="side-menu__title"> Permissions </div>
                                 </a>
@@ -544,8 +550,8 @@
                             <div class="side-menu__title"> Point of Sale </div>
                         </a>
                     </li>
-                   
-                   
+
+
                 </ul>
             </nav>
 
