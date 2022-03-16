@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Roles\PermissionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    // return view('dashboard');
-    return view('backend.index');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     // return view('dashboard');
+//     return view('backend.index');
+// })->middleware(['auth'])->name('dashboard');
+    
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/dashboard', function () {
+        return view('backend.index');
+    })->name('dashboard');
+
+    Route::resource('permission', PermissionController::class)->except('show');
+});
 
 require __DIR__.'/auth.php';
