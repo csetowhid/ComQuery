@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Roles;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
@@ -15,6 +17,7 @@ class PermissionController extends Controller
     public function index()
     {
         $data['title'] = "Permission";
+        $data['permissions'] = Permission::all();
         return view('backend.permission.index',$data);
     }
 
@@ -36,7 +39,19 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $permission = Permission::create([
+            'name' => Str::slug($request->name)
+        ]);
+
+        if (!empty($permission)) {
+            return back();
+        }
+
+        return back();
     }
 
     /**
