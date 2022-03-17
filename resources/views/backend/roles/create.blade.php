@@ -11,9 +11,9 @@
             </div>
             <!-- BEGIN: Datatable -->
             <div class="grid grid-cols-12 gap-6 mt-5">
-                <div class="intro-y col-span-12 lg:col-span-10">
+                <div class="intro-y col-span-12 lg:col-span-12">
                     <!-- BEGIN: Form Validation -->
-                    <div class="intro-y box">
+                    <div class="intro-y box max-w-3xl mx-auto">
                         <div class="p-5" id="basic-datepicker">
                             <div class="preview">
                                 <form class="validate-form" method="post" action="{{route('roles.store')}}">
