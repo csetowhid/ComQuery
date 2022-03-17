@@ -18,6 +18,7 @@ class RoleController extends Controller
     {
         $data['title'] = "Roles";
         $data['roles'] = Role::all();
+        $data['permissions'] = Permission::all();
         return view('backend.roles.index',$data);
     }
 
@@ -41,7 +42,24 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:roles',
+            'permissions' => 'nullable',
+        ]);
+
+        $role = Role::create([
+            'name' => $request->name
+        ]);
+
+        if($request->has("permissions")){
+            $role->givePermissionTo($request->permissions);
+        }
+
+        if (!empty($role)) {
+            return redirect()->route('roles.index');
+        }
+
+        return back();
     }
 
     /**
