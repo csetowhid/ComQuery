@@ -8,42 +8,43 @@
                     Roles Report
                 </h2>
                 <a href="{{route('roles.create')}}" class="button w-32 mr-2 mb-2 flex ml-auto items-center justify-center bg-theme-1 text-white"><i data-feather="plus-circle" class="w-4 h-4 mr-2"></i> Create</a>
-
             </div>
             <!-- BEGIN: Datatable -->
             <div class="intro-y datatable-wrapper box p-5 mt-5">
                 <table class="table table-report table-report--bordered display datatable w-full">
                     <thead>
                     <tr>
-                        <th class="border-b-2 whitespace-no-wrap">Permission Name</th>
-                        <th class="border-b-2 text-center whitespace-no-wrap">Guard</th>
+                        <th class="border-b-2 whitespace-no-wrap">Role Name</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">Permission</th>
                         <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                     </tr>
                     </thead>
                     <tbody>
-{{--                    @forelse($permissions as $permission)--}}
-{{--                        <tr>--}}
-{{--                            <td class="border-b">--}}
-{{--                                <div class="font-medium whitespace-no-wrap">{{$permission->name}}</div>--}}
-{{--                            </td>--}}
-{{--                            <td class="border-b">--}}
-{{--                                <div class="font-medium whitespace-no-wrap">{{$permission->guard_name}}</div>--}}
-{{--                            </td>--}}
+                    @forelse($roles as $role)
+                        <tr>
+                            <td class="border-b">
+                                <div class="font-medium whitespace-no-wrap">{{$role->name}}</div>
+                            </td>
+                            <td class="border-b">
+                                @foreach ($role->permissions as $permission)
+                                    <span class="rounded-md bg-theme-1 text-white p-1">{{$permission->name}}</span>
+                                @endforeach
+                            </td>
 
-{{--                            <td class="border-b w-5">--}}
-{{--                                <div class="flex sm:justify-center items-center">--}}
-{{--                                    <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>--}}
-{{--                                    <a class="flex items-center text-theme-6" href=""> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>--}}
-{{--                                </div>--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
-{{--                    @empty--}}
-{{--                        <tr>--}}
-{{--                            <td colspan="3">--}}
-{{--                                <div class="font-medium whitespace-no-wrap text-center">No Data Found</div>--}}
-{{--                            </td>--}}
-{{--                        </tr>--}}
-{{--                    @endforelse--}}
+                            <td class="border-b w-5">
+                                <div class="flex sm:justify-center items-center">
+                                    <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                                    <a class="flex items-center text-theme-6" href=""> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3">
+                                <div class="font-medium whitespace-no-wrap text-center">No Data Found</div>
+                            </td>
+                        </tr>
+                    @endforelse
 
                     </tbody>
                 </table>

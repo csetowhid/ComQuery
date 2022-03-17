@@ -18,22 +18,22 @@
                         </div>
                         <form class="validate-form" method="post" action="{{route('permission.store')}}">
                             @csrf
-                        <div class="intro-y col-span-12 lg:col-span-6">
-                            <div class="intro-y box">
-                                <div class="p-5" id="basic-datepicker">
-                                    <div class="preview">
-                                            <div>
-                                                <label class="flex flex-col sm:flex-row"> Name </label>
-                                                <input type="text" name="name" class="input w-full border mt-2" placeholder="Enter Permission Name" required>
+                                <div class="intro-y col-span-12 lg:col-span-6">
+                                    <div class="intro-y box">
+                                        <div class="p-5" id="basic-datepicker">
+                                            <div class="preview">
+                                                    <div>
+                                                        <label class="flex flex-col sm:flex-row"> Name </label>
+                                                        <input type="text" name="name" class="input w-full border mt-2" placeholder="Enter Permission Name" required>
+                                                    </div>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="px-5 py-3 text-right border-t border-gray-200">
-                            <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 mr-1">Cancel</button>
-                            <button type="submit" class="button w-20 bg-theme-1 text-white">Create</button>
-                        </div>
+                                <div class="px-5 py-3 text-right border-t border-gray-200">
+                                    <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 mr-1">Cancel</button>
+                                    <button type="submit" class="button w-20 bg-theme-1 text-white">Create</button>
+                                </div>
                         </form>
                     </div>
                 </div>
@@ -49,7 +49,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($permissions as $permission)
+                    @if(!empty($permissions))
+                        @foreach($permissions as $permission)
                             <tr>
                                 <td class="border-b">
                                     <div class="font-medium whitespace-no-wrap">{{$permission->name}}</div>
@@ -65,13 +66,8 @@
                                     </div>
                                 </td>
                             </tr>
-                        @empty
-                            <tr>
-                                <td colspan="3">
-                                    <div class="font-medium whitespace-no-wrap text-center">No Data Found</div>
-                                </td>
-                            </tr>
-                        @endforelse
+                        @endforeach
+                        @endif
 
                     </tbody>
                 </table>

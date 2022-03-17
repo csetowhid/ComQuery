@@ -16,18 +16,9 @@
                     <div class="intro-y box">
                         <div class="p-5" id="basic-datepicker">
                             <div class="preview">
-                                <form class="validate-form">
-                                    <div>
-                                        <label class="flex flex-col sm:flex-row"> Name </label>
-                                        <input type="text" name="name" class="input w-full border mt-2" placeholder="Enter Role Name" minlength="2" required>
-                                    </div>
-                                    <div class="mt-3">
-                                        <label class="flex flex-col sm:flex-row"> Permissions </label>
-                                        <input type="checkbox" name="email" class="input w-full border mt-2 mr-2" required>
-                                        <label class="mt-2"> Permission Name </label>
-                                    </div>
-
-                                    <button type="submit" class="button bg-theme-1 text-white mt-5">Register</button>
+                                <form class="validate-form" method="post" action="{{route('roles.store')}}">
+                                    @csrf
+                                    @include("backend.roles._form", ["button" => "Create"])
                                 </form>
                             </div>
 
