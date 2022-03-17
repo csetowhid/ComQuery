@@ -9,11 +9,9 @@
                 </h2>
                 <a href="{{route('users.index')}}" class="button w-32 mr-2 mb-2 flex ml-auto items-center justify-center bg-theme-1 text-white"><i data-feather="list" class="w-4 h-4 mr-2"></i> Users</a>
             </div>
-            <!-- BEGIN: Datatable -->
             <div class="grid grid-cols-12 gap-6 mt-5">
-                <div class="intro-y col-span-12 lg:col-span-10">
-                    <!-- BEGIN: Form Validation -->
-                    <div class="intro-y box">
+                <div class="intro-y col-span-12 lg:col-span-12">
+                    <div class="intro-y box max-w-3xl mx-auto">
                         <div class="p-5" id="basic-datepicker">
                             <div class="preview">
                                 <form class="validate-form" method="post" action="{{route('users.store')}}">
@@ -24,7 +22,7 @@
 
                         </div>
                     </div>
-                    <!-- END: Form Validation -->
+            
                 </div>
             </div>
         </div>
