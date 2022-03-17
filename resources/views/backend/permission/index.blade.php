@@ -76,8 +76,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
-
     </div>
 </x-backend.app>
