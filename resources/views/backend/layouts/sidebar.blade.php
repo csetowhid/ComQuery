@@ -12,11 +12,11 @@
             </a>
         </li>
         <li>
-            <a href="#" class="side-menu {{ (request()->is(['permission*','roles*'])) ? 'side-menu--active' : '' }} ">
+            <a href="#" class="side-menu {{ (request()->is(['permission*','roles*','users*'])) ? 'side-menu--active' : '' }} ">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title"> Role Management <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
             </a>
-            <ul class="{{ (request()->is(['permission*','roles*'])) ? 'side-menu__sub-open' : '' }}">
+            <ul class="{{ (request()->is(['permission*','roles*','users*'])) ? 'side-menu__sub-open' : '' }}">
                 <li>
                     <a href="{{route('roles.index')}}" class="side-menu {{ (request()->is('roles*')) ? 'side-menu--active' : '' }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="top-menu-dashboard.html" class="side-menu">
+                    <a href="{{route('users.index')}}" class="side-menu {{ (request()->is('users*')) ? 'side-menu--active' : '' }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Users </div>
                     </a>
