@@ -3,7 +3,7 @@
     <!-- BEGIN: Head -->
     <head>
         <meta charset="utf-8">
-        <link href="{{asset('backend/images/logo.svg')}}" rel="shortcut icon">
+        <link href="{{asset('backend/images/fevicon-white.png')}}" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
         <meta name="keywords" content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
@@ -494,8 +494,8 @@
 {{--            @include('backend.layouts.sidebar');--}}
             <nav class="side-nav">
                 <a href="" class="intro-x flex items-center pl-5 pt-4">
-                    <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="{{asset('backend/images/logo.svg')}}">
-                    <span class="hidden xl:block text-white text-lg ml-3"> Mid<span class="font-medium">one</span> </span>
+                    <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="{{asset('backend/images/fevicon-white.png')}}">
+                    <span class="hidden xl:block text-white text-lg ml-3"><span class="font-medium">ComQuery</span> </span>
                 </a>
                 <div class="side-nav__devider my-6"></div>
                 <ul>
