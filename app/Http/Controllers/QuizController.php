@@ -18,7 +18,6 @@ class QuizController extends Controller
     {
         $data['title'] = "Quizs";
         $data['quizs'] = Quiz::all();
-//        notify()->success('Welcome to Laravel Notify ⚡️');
         return view('backend.quiz.index',$data);
     }
 
