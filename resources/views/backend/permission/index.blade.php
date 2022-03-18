@@ -43,7 +43,8 @@
                 <table class="table table-report table-report--bordered display datatable w-full">
                     <thead>
                         <tr>
-                            <th class="border-b-2 whitespace-no-wrap">Permission Name</th>
+                            <th class="border-b-2 text-center whitespace-no-wrap">SL</th>
+                            <th class="border-b-2 text-center whitespace-no-wrap">Permission Name</th>
                             <th class="border-b-2 text-center whitespace-no-wrap">Guard</th>
                             <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                         </tr>
@@ -53,12 +54,14 @@
                         @foreach($permissions as $permission)
                             <tr>
                                 <td class="border-b">
-                                    <div class="font-medium whitespace-no-wrap">{{$permission->name}}</div>
+                                    <div class="text-center whitespace-no-wrap">{{$loop->iteration}}</div>
                                 </td>
                                 <td class="border-b">
-                                    <div class="font-medium whitespace-no-wrap">{{$permission->guard_name}}</div>
+                                    <div class="text-center whitespace-no-wrap">{{$permission->name}}</div>
                                 </td>
-
+                                <td class="border-b">
+                                    <div class="text-center whitespace-no-wrap">{{$permission->guard_name}}</div>
+                                </td>
                                 <td class="border-b w-5">
                                     <div class="flex sm:justify-center items-center">
                                         <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>

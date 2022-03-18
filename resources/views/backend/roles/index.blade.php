@@ -14,7 +14,8 @@
                 <table class="table table-report table-report--bordered display datatable w-full">
                     <thead>
                     <tr>
-                        <th class="border-b-2 whitespace-no-wrap">Role Name</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">SL</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">Role Name</th>
                         <th class="border-b-2 text-center whitespace-no-wrap">Permission</th>
                         <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                     </tr>
@@ -23,11 +24,14 @@
                     @forelse($roles as $role)
                         <tr>
                             <td class="border-b">
-                                <div class="font-medium whitespace-no-wrap">{{$role->name}}</div>
+                                <div class="text-center whitespace-no-wrap">{{$loop->iteration}}</div>
+                            </td>
+                            <td class="border-b">
+                                <div class="text-center whitespace-no-wrap">{{$role->name}}</div>
                             </td>
                             <td class="border-b">
                                 @foreach ($role->permissions as $permission)
-                                    <span class="rounded-md bg-theme-1 text-white p-1">{{$permission->name}}</span>
+                                    <span class="rounded-md text-center bg-theme-1 text-white p-1">{{$permission->name}}</span>
                                 @endforeach
                             </td>
 

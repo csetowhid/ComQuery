@@ -55,7 +55,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $user->assignRole($request->role);
+        $user->assignRole($request->roles);
 
         if (!empty($user)) {
             return redirect()->route('users.index');
@@ -81,9 +81,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $data['title'] = "User Edit";
+        $data['user'] = $user;
+        $data['roles'] = Role::all();
+        return view('backend.users.edit',$data);
     }
 
     /**
@@ -95,7 +98,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,'.$id
+        ]);
+
+        $user = User::where('id',$id)->first();
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if($user->update()){
+            if ($request->roles) {
+                $user->roles()->detach();
+                $user->assignRole($request->roles);
+            }
+            return redirect()->route("users.index");
+        }
+
+        return back();
     }
 
     /**
