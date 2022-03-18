@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class QuizRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class QuizRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,22 @@ class QuizRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => [
+                'required',
+                Rule::unique('quizzes')->ignore($this->route('quiz')),
+                'max:255',
+            ],
+            'description' => [
+                'nullable',
+            ],
+            'exam_duration' => [
+                'required',
+                'integer',
+            ],
+            'url' => [
+                'nullable',
+                'url',
+            ],
         ];
     }
 }
