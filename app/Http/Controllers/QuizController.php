@@ -18,6 +18,7 @@ class QuizController extends Controller
     {
         $data['title'] = "Quizs";
         $data['quizs'] = Quiz::all();
+//        notify()->success('Welcome to Laravel Notify ⚡️');
         return view('backend.quiz.index',$data);
     }
 
@@ -48,6 +49,7 @@ class QuizController extends Controller
         ]);
 
         if (!empty($quiz)) {
+            notify()->success('Quiz Has Been Created Successfully!');
             return redirect()->route('quiz.index');
         }
 
