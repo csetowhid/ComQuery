@@ -16,7 +16,9 @@ class QuizController extends Controller
      */
     public function index()
     {
-        dd("asce");
+        $data['title'] = "Quizs";
+        $data['quizs'] = Quiz::all();
+        return view('backend.quiz.index',$data);
     }
 
     /**
