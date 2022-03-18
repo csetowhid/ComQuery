@@ -16,11 +16,14 @@
             @endisset
         </title>
         <!-- BEGIN: CSS Assets-->
+        @notifyCss
         <link rel="stylesheet" href="{{asset('backend/css/app.css')}}" />
+
         <!-- END: CSS Assets-->
     </head>
     <!-- END: Head -->
     <body class="app">
+        <x:notify-messages />
         <!-- BEGIN: Mobile Menu -->
         <div class="mobile-menu md:hidden">
             <div class="mobile-menu-bar">
@@ -505,6 +508,8 @@
         </div>
         <!-- BEGIN: JS Assets-->
         <script src="{{asset('backend/js/app.js')}}"></script>
+
+        @notifyJs
         <!-- END: JS Assets-->
     </body>
 </html>
