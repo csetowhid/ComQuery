@@ -50,7 +50,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3">
+                            <td colspan="6">
                                 <div class="font-medium whitespace-no-wrap text-center">No Data Found</div>
                             </td>
                         </tr>
