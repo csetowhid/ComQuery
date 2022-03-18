@@ -38,6 +38,27 @@
             </ul>
         </li>
         <li class="side-nav__devider my-6"></li>
+
+        <li>
+            <a href="#" class="side-menu {{ (request()->is('quiz*')) ? 'side-menu--active' : '' }} ">
+                <div class="side-menu__icon"> <i data-feather="clipboard"></i> </div>
+                <div class="side-menu__title"> Quiz <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+            </a>
+            <ul class="{{ (request()->is('quiz*')) ? 'side-menu__sub-open' : '' }}">
+                <li>
+                    <a href="{{route('quiz.create')}}" class="side-menu {{ (request()->is('quiz.create')) ? 'side-menu--active' : '' }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Create </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('quiz.index')}}" class="side-menu {{ (request()->is('quiz.index')) ? 'side-menu--active' : '' }}">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> List </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li>
             <a href="side-menu-inbox.html" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
