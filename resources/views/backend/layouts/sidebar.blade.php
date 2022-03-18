@@ -46,13 +46,13 @@
             </a>
             <ul class="{{ (request()->is('quiz*')) ? 'side-menu__sub-open' : '' }}">
                 <li>
-                    <a href="{{route('quiz.create')}}" class="side-menu {{ (request()->is('quiz.create')) ? 'side-menu--active' : '' }}">
+                    <a href="{{route('quiz.create')}}" class="side-menu {{ (request()->is('quiz/create')) ? 'side-menu--active' : '' }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Create </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('quiz.index')}}" class="side-menu {{ (request()->is('quiz.index')) ? 'side-menu--active' : '' }}">
+                    <a href="{{route('quiz.index')}}" class="side-menu {{ (request()->is('quiz')) ? 'side-menu--active' : '' }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> List </div>
                     </a>
