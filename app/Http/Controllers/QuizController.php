@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuizRequest;
 use App\Http\Requests\StoreQuizRequest;
 use App\Http\Requests\UpdateQuizRequest;
 use App\Models\Quiz;
@@ -35,9 +36,20 @@ class QuizController extends Controller
      * @param  \App\Http\Requests\StoreQuizRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreQuizRequest $request)
+    public function store(QuizRequest $request)
     {
-        //
+        $quiz = Quiz::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'exam_duration' => $request->exam_duration,
+            'url' => $request->url,
+        ]);
+
+        if (!empty($quiz)) {
+            return redirect()->route('quiz.index');
+        }
+
+        return back();
     }
 
     /**
