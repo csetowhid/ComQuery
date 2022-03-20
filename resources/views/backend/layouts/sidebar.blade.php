@@ -5,38 +5,48 @@
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
+        @can('Dashboard Show')
         <li>
             <a href="{{route('dashboard')}}" class="side-menu {{ (request()->is('dashboard')) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-feather="home"></i> </div>
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
+        @endcan
+        @can('Role Management')
         <li>
             <a href="#" class="side-menu {{ (request()->is(['permission*','roles*','users*'])) ? 'side-menu--active' : '' }} ">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title"> Role Management <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
             </a>
             <ul class="{{ (request()->is(['permission*','roles*','users*'])) ? 'side-menu__sub-open' : '' }}">
+                @can('Role List')
                 <li>
                     <a href="{{route('roles.index')}}" class="side-menu {{ (request()->is('roles*')) ? 'side-menu--active' : '' }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Roles </div>
                     </a>
                 </li>
+                @endcan
+                @can('Permission List')
                 <li>
                     <a href="{{route('permission.index')}}" class="side-menu {{ (request()->is('permission*')) ? 'side-menu--active' : '' }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Permissions </div>
                     </a>
                 </li>
+                @endcan
+                @can('User List')
                 <li>
                     <a href="{{route('users.index')}}" class="side-menu {{ (request()->is('users*')) ? 'side-menu--active' : '' }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Users </div>
                     </a>
                 </li>
+                @endcan
             </ul>
         </li>
+        @endcan
         <li class="side-nav__devider my-6"></li>
 
         <li>
