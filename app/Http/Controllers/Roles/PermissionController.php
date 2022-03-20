@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Roles;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
@@ -44,7 +43,7 @@ class PermissionController extends Controller
         ]);
 
         $permission = Permission::create([
-            'name' => Str::slug($request->name)
+            'name' => $request->name
         ]);
 
         if (!empty($permission)) {
