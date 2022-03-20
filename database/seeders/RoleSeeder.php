@@ -21,6 +21,7 @@ class RoleSeeder extends Seeder
             [
                 'permissions' => [
                     'Dashboard Show',
+                    'Role Management',
                 ]
             ],
             [

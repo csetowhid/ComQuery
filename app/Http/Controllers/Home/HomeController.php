@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:Dashboard Show', ['only' => ['__invoke']]);
+    }
     /**
      * Handle the incoming request.
      *
