@@ -35,10 +35,10 @@
                                 <div class="text-center whitespace-no-wrap">{{$quiz->exam_duration}} Min</div>
                             </td>
                             <td class="border-b">
-                                <div class="text-center whitespace-no-wrap">{{$quiz->url}}</div>
+                                <div class="text-center">{{$quiz->url}}</div>
                             </td>
                             <td class="border-b">
-                                <div class="text-center whitespace-no-wrap">{!! $quiz->description !!}</div>
+                                <div class="text-center">{!! $quiz->description !!}</div>
                             </td>
 
                             <td class="border-b w-5">
