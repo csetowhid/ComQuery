@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\QuizRequest;
-use App\Http\Requests\StoreQuizRequest;
-use App\Http\Requests\UpdateQuizRequest;
 use App\Models\Quiz;
+use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
@@ -74,7 +73,9 @@ class QuizController extends Controller
      */
     public function edit(Quiz $quiz)
     {
-        //
+        $data['title'] = "Quiz Edit";
+        $data['quiz'] = $quiz;
+        return view('backend.quiz.edit',$data);
     }
 
     /**
@@ -84,9 +85,20 @@ class QuizController extends Controller
      * @param  \App\Models\Quiz  $quiz
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateQuizRequest $request, Quiz $quiz)
+    public function update(QuizRequest $request, $id)
     {
-        //
+        $quiz = Quiz::where('id',$id)->first();
+        $quiz->title = $request->title;
+        $quiz->description = $request->description;
+        $quiz->exam_duration = $request->exam_duration;
+        $quiz->url = $request->url;
+
+        if($quiz->update()){
+            notify()->success('Quiz Has Been Updated Successfully!');
+            return redirect()->route("quiz.index");
+        }
+
+        return back();
     }
 
     /**
