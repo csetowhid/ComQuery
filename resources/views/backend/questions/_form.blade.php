@@ -20,45 +20,71 @@
     <input type="number" name="per_question_mark" class="input w-full border mt-2" placeholder="Enter Per Question Mark" required>
 </div>
 
-<div class="mt-3">
-    <label class="flex flex-col sm:flex-row"> Options </label>
-</div>
-<button class="button w-32 mr-2 mb-2 flex ml-auto items-center justify-center bg-theme-1 text-white" type="button" onclick="createRow()"><i data-feather="plus-circle" class="w-4 h-4 mr-2"></i> Add</button>
-<div class="mt-3">
-    <label class="flex flex-col sm:flex-row"> Option 1 </label>
-    <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
-</div>
-<div class="mt-3">
-    <label class="flex flex-col sm:flex-row"> Option 2 </label>
-    <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
-</div>
-<div class="mt-3">
-    <label class="flex flex-col sm:flex-row"> Option 3 </label>
-    <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
-</div>
-<div class="mt-3">
-    <label class="flex flex-col sm:flex-row"> Option 4 </label>
-    <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
+<button class="button mb-2 flex ml-auto items-center justify-center bg-theme-9 text-white" type="button" onclick="create()"><i data-feather="plus-circle" class="h-4"></i></button>
+<div class="flex flex-row">
+    <!----- Input ----->
+    <div class="mt-3 w-full">
+        <label class="flex flex-col sm:flex-row"> Options </label>
+        <div class="mt-3">
+            <label class="flex flex-col sm:flex-row"> Option 1 </label>
+            <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
+        </div>
+        <div class="mt-3">
+            <label class="flex flex-col sm:flex-row"> Option 2 </label>
+            <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
+        </div>
+        <div class="mt-3">
+            <label class="flex flex-col sm:flex-row"> Option 3 </label>
+            <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
+        </div>
+        <div class="mt-3">
+            <label class="flex flex-col sm:flex-row"> Option 4 </label>
+            <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
+        </div>
+    </div>
+
+    <!----- Answer ----->
+    <div class="mt-3 w-full">
+        <label> Correct Answer</label>
+        <div class="flex items-center text-gray-700 mt-12">
+            <input type="checkbox" class="input border mr-2" id="vertical-checkbox-chris-evans" name="correct_answer" value="1">
+            <label class="cursor-pointer select-none">Option 1</label>
+        </div>
+        <div class="flex items-center text-gray-700 mt-16">
+            <input type="checkbox" class="input border mr-2" id="vertical-checkbox-liam-neeson" name="correct_answer" value="2">
+            <label class="cursor-pointer select-none" for="vertical-checkbox-liam-neeson">Option 2</label>
+        </div>
+        <div class="flex items-center text-gray-700 mt-16">
+            <input type="checkbox" class="input border mr-2" id="vertical-checkbox-daniel-craig" name="correct_answer" value="3">
+            <label class="cursor-pointer select-none" for="vertical-checkbox-daniel-craig">Option 3</label>
+        </div>
+        <div class="flex items-center text-gray-700 mt-12">
+            <input type="checkbox" class="input border mr-2" id="vertical-checkbox-daniel-craig" name="correct_answer" value="4">
+            <label class="cursor-pointer select-none" for="vertical-checkbox-daniel-craig">Option 4</label>
+        </div>
+    </div>
 </div>
 
-<!-----Options---->
-<table id="myTable">
-    <tr>
-        <td></td>
-    </tr>
-</table>
-<!-----Options---->
-<div class="mt-3">
-    <label> Correct Answer</label>
-    <div class="mt-2">
-        <select class="select2 w-full" name="correct_answer">
-            <option value="">Select</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-                <option value="4">Option 4</option>
-        </select>
+<span id="writeroot"></span>
+
+<div id="readroot" style="display: none">
+        <button class="button flex ml-auto items-center justify-center bg-theme-6 text-white" type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"><i data-feather="minus-circle" class="h-4"></i></button>
+
+    <!----- Input ----->
+
+    <div class="flex flex-row">
+        <div class="w-full">
+            <label class="flex flex-col sm:flex-row">  </label>
+            <input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value">
+        </div>
+
+        <!----- Answer ----->
+        <div class="w-full mt-10">
+            <input type="checkbox" class="input border mr-2" id="vertical-checkbox-chris-evans" name="correct_answer" value="1">
+            <label class="cursor-pointer select-none">Option 1</label>
+        </div>
     </div>
+
 </div>
 
 <div class="mt-3">
