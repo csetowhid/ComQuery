@@ -511,5 +511,7 @@
 
         @notifyJs
         <!-- END: JS Assets-->
+
+    @stack('js')
     </body>
 </html>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Roles\PermissionController;
 use App\Http\Controllers\Roles\RoleController;
 use App\Http\Controllers\Roles\UserController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     /*----- Quiz -----*/
     Route::resource('quiz', QuizController::class)->except('show');
+
+    /*----- Questions -----*/
+    Route::resource('questions', QuestionController::class)->except('show');
 });
 
 require __DIR__.'/auth.php';
