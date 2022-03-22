@@ -69,6 +69,27 @@
                 </li>
             </ul>
         </li>
+
+            <li>
+                <a href="#" class="side-menu {{ (request()->is('questions*')) ? 'side-menu--active' : '' }} ">
+                    <div class="side-menu__icon"> <i data-feather="pen-tool"></i> </div>
+                    <div class="side-menu__title"> Question <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                </a>
+                <ul class="{{ (request()->is('questions*')) ? 'side-menu__sub-open' : '' }}">
+                    <li>
+                        <a href="{{route('questions.create')}}" class="side-menu {{ (request()->is('questions/create')) ? 'side-menu--active' : '' }}">
+                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                            <div class="side-menu__title"> Create </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('questions.index')}}" class="side-menu {{ (request()->is('questions')) ? 'side-menu--active' : '' }}">
+                            <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                            <div class="side-menu__title"> List </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
         <li>
             <a href="side-menu-inbox.html" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
