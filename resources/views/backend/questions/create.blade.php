@@ -21,7 +21,6 @@
                                     @include("backend.questions._form", ["button" => "Create"])
                                 </form>
                             </div>
-
                         </div>
                     </div>
                     <!-- END: Form Validation -->
@@ -31,7 +30,7 @@
     </div>
     @push('js')
     <script>
-        var counter = 0;
+        var counter = 5;
         function create() {
             counter++;
             var newFields = document.getElementById('readroot').cloneNode(true);
@@ -45,6 +44,7 @@
             }
             var insertHere = document.getElementById('writeroot');
             insertHere.parentNode.insertBefore(newFields,insertHere);
+            document.getElementById('ov').innerText = counter;
         }
     </script>
         {{-- <script>
