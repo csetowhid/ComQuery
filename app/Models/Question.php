@@ -24,5 +24,10 @@ class Question extends Model
         return $this->hasMany(Quiz::class, 'quiz_id');
     }
 
+    protected $casts = [
+        'options' => 'array',
+        'correct_answer' => 'array',
+    ];
+
 
 }
