@@ -47,54 +47,5 @@
             document.getElementById('ov').innerText = counter;
         }
     </script>
-        {{-- <script>
-            function deleteRow(btn) {
-                /* ----- Input Remove ----- */
-                    var rowCount = myTable.rows.length;
-                    var row = btn.parentNode.parentNode;
-                    row.parentNode.removeChild(row);
-
-                    // var rowCount = optionTable.rows.length;
-                    // var row = btn.parentNode.parentNode;
-                    // row.parentNode.removeChild(row);
-            }
-            var optionValue = 5;
-            var checkValue = 5;
-
-            function createRow() {
-
-                /* ----- Input Add ----- */
-                var table = document.getElementById("myTable");
-                var rowCount = myTable.rows.length;
-
-                var row = table.insertRow(rowCount -1);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                cell1.style.width="100%";
-    
-
-                cell1.innerHTML = '<div class="mt-3"><label class="flex flex-col sm:flex-row"> Option '+ optionValue++ +' </label><input type="text" name="options[]" class="input w-full border mt-2" placeholder="Enter Option Value"></div>';
-
-                cell2.innerHTML = '<button onclick="deleteRow(this)" class="button mt-10 flex ml-auto items-center justify-center bg-theme-6 text-white"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> </button>';
-
-
-                /* ----- Checkbox Add ----- */
-
-                var tableOp = document.getElementById("optionTable");
-                var rowCount = optionTable.rows.length;
-
-                var row = tableOp.insertRow(rowCount -1);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                cell1.style.width="100%";
-    
-
-                cell1.innerHTML = '<div class="flex items-center text-gray-700 mt-2"><input type="checkbox" class="input border mr-2" id="vertical-checkbox-daniel-craig" name="correct_answer" value="4"><label class="cursor-pointer select-none" for="vertical-checkbox-daniel-craig">Option '+ checkValue++ +'</label></div>';
-                
-                // cell2.innerHTML = '<button onclick="deleteRow(this)" class="button mt-10 flex ml-auto items-center justify-center bg-theme-6 text-white"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> </button>';
-
-            }
-
-        </script> --}}
     @endpush
 </x-backend.app>

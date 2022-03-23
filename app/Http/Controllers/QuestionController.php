@@ -42,12 +42,9 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-
         $options = $request->options;
 
         foreach($options as $key => $value) {
-            // $option[$key] = $value;
-
             $option[] = [
                 'option_'.$key => $value,
                 'option_'.$key => $value,
