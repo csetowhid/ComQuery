@@ -16,10 +16,13 @@
                     <tr>
                         <th class="border-b-2 text-center whitespace-no-wrap">SL</th>
                         <th class="border-b-2 text-center whitespace-no-wrap">Quiz</th>
-                        {{-- <th class="border-b-2 text-center whitespace-no-wrap">Exam Duration</th>
-                        <th class="border-b-2 text-center whitespace-no-wrap">Url</th>
-                        <th class="border-b-2 text-center whitespace-no-wrap">Description</th>
-                        <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th> --}}
+                        <th class="border-b-2 text-center whitespace-no-wrap">Question</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">Options</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">Correct Ans</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">Mark</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">Multople</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">Question</th>
+                        <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,23 +34,45 @@
                             <td class="border-b">
                                 <div class="text-center whitespace-no-wrap">{{$question->quiz->title}}</div>
                             </td>
-                            {{-- <td class="border-b">
-                                <div class="text-center whitespace-no-wrap">{{$quiz->exam_duration}} Min</div>
-                            </td> --}}
-                            {{-- <td class="border-b">
-                                <div class="text-center">{{$quiz->url}}</div>
+                            <td class="border-b">
+                                <div class="text-center whitespace-no-wrap">{!!$question->question_name!!}</div>
                             </td>
                             <td class="border-b">
-                                <div class="text-center">{!! $quiz->description !!}</div>
+                                <div class="text-center">
+                                    @forelse($question->options as $option)
+                                        <div class="text-center whitespace-no-wrap">option</div>
+                                    @empty
+                                        <div class="text-center whitespace-no-wrap">No Option Found</div>
+                                    @endforelse
+                                </div>
                             </td>
+                            <td class="border-b">
+                                <div class="text-center">
+                                    @forelse($question->correct_answer as $ans)
+                                        <div class="text-center whitespace-no-wrap">{{$ans}}</div>
+                                    @empty
+                                        <div class="text-center whitespace-no-wrap">No Option Found</div>
+                                    @endforelse
+                                </div>
+                            </td>
+                            <td class="border-b">
+                                <div class="text-center">{{$question->per_question_mark}}</div>
+                            </td>
+                            <td class="border-b">
+                                <div class="text-center">{{$question->is_multiple_answers}}</div>
+                            </td>
+                            <td class="border-b">
+                                <div class="text-center">{{$question->question_type}}</div>
+                            </td>
+                            
 
                             <td class="border-b w-5">
                                 <div class="flex sm:justify-center items-center">
-                                    <a class="flex items-center mr-3" href="{{route('quiz.edit',$quiz->id)}}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                                    <a class="flex items-center mr-3" href="{{route('questions.edit',$question->id)}}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                                     <a class="flex items-center text-theme-6" href=""> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                                 </div>
                             </td>
-                        </tr>--}}
+                        </tr>
                     @empty
                         <tr>
                             <td colspan="6">

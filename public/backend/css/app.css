@@ -162978,3 +162978,8 @@ video {
     transition-delay: 1000ms;
   }
 }
+
+/*==== custom==== */
+.input-field{
+        width:50% !important;
+}
