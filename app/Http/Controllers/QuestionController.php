@@ -16,7 +16,10 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $data['title'] = "Quesions";
+        $data['quizs'] = Quiz::all();
+        $data['questions'] = Question::all();
+        return view('backend.questions.index',$data);
     }
 
     /**
@@ -39,34 +42,37 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request)
     {
+
+        $options = $request->options;
+
+        foreach($options as $key => $value) {
+            // $option[$key] = $value;
+
+            $option[] = [
+                'option_'.$key => $value,
+                'option_'.$key => $value,
+                'option_'.$key => $value,
+                'option_'.$key => $value,
+            ];
+        }
+
         $question = Question::create([
             'quiz_id' => $request->quiz_id,
             'question_name' => $request->question_name,
-            'options' => $request->options,
+            'options' => $option,
             'correct_answer' => $request->correct_answer,
             'per_question_mark' => $request->per_question_mark,
             'is_multiple_answers' => $request->is_multiple_answers,
             'question_type' => $request->question_type,
         ]);
-
-
-            // $data['quiz_id'] = $request->quiz_id;
-            // $data['question_name'] = $request->question_name;
-            // $data['options'] = $request->options;
-            // $data['correct_answer'] = $request->correct_answer;
-            // $data['per_question_mark'] = $request->per_question_mark;
-            // $data['is_multiple_answers'] = $request->is_multiple_answers;
-            // $data['question_type'] = $request->question_type;
-
-            // dd($data);
+            
      
+        if (!empty($question)) {
+            notify()->success('Question Has Been Created Successfully!');
+            return redirect()->route('questions.index');
+        }
 
-        // if (!empty($question)) {
-        //     notify()->success('Question Has Been Created Successfully!');
-        //     return redirect()->route('questions.index');
-        // }
-
-        // return back();
+        return back();
     }
 
     /**
