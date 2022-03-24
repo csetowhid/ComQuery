@@ -26,6 +26,7 @@ class QuestionController extends Controller
         $data['title'] = "Quesions";
         $data['quizs'] = Quiz::all();
         $data['questions'] = Question::all();
+        // dd($data['questions']);
         return view('backend.questions.index',$data);
     }
 
@@ -49,21 +50,16 @@ class QuestionController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-        $options = $request->options;
+        $options = [];
 
-        foreach($options as $key => $value) {
-            $option[] = [
-                'option_'.$key => $value,
-                'option_'.$key => $value,
-                'option_'.$key => $value,
-                'option_'.$key => $value,
-            ];
-        }
+	    foreach ($request->options as $key => $value) {
+	        $options['Option '.++$key] = $value;
+	    }
 
         $question = Question::create([
             'quiz_id' => $request->quiz_id,
             'question_name' => $request->question_name,
-            'options' => $option,
+            'options' => $options,
             'correct_answer' => $request->correct_answer,
             'per_question_mark' => $request->per_question_mark,
             'is_multiple_answers' => $request->is_multiple_answers,
@@ -72,7 +68,7 @@ class QuestionController extends Controller
             
      
         if (!empty($question)) {
-            notify()->success('Question Has Been Created Successfully!');
+            notify()->success('Question Added Successfully!');
             return redirect()->route('questions.index');
         }
 

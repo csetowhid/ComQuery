@@ -39,10 +39,10 @@
                             </td>
                             <td class="border-b">
                                 <div class="text-center">
-                                    @forelse($question->options as $option)
-                                        <div class="text-center whitespace-no-wrap">option</div>
+                                    @forelse($question->options as $key => $option)
+                                        <div class="text-center whitespace-no-wrap">{{$key}} : {{$option}}</div>
                                     @empty
-                                        <div class="text-center whitespace-no-wrap">No Option Found</div>
+                                        <div class="text-center whitespace-no-wrap">No Data Found</div>
                                     @endforelse
                                 </div>
                             </td>
@@ -75,7 +75,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6">
+                            <td colspan="9">
                                 <div class="font-medium whitespace-no-wrap text-center">No Data Found</div>
                             </td>
                         </tr>
