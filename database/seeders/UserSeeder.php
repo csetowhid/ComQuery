@@ -21,5 +21,19 @@ class UserSeeder extends Seeder
             'email' => 'superadmin@gmail.com',
             'password' => Hash::make('12345678')
         ]);
+
+        /*--------Create Interviewee --------*/
+        User::create([
+            'name' => 'Interviewee',
+            'email' => 'interviewee@gmail.com',
+            'password' => Hash::make('12345678')
+        ]);
+
+        /*--------Create Interviewee --------*/
+        User::create([
+            'name' => 'Interviewer',
+            'email' => 'interviewer@gmail.com',
+            'password' => Hash::make('12345678')
+        ]);
     }
 }

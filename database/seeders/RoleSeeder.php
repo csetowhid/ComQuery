@@ -17,7 +17,6 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $permissions = [
-
             [
                 'permissions' => [
                     'Dashboard Show',
@@ -48,10 +47,28 @@ class RoleSeeder extends Seeder
                     'User Delete',
                 ]
             ],
+            [
+                'permissions' => [
+                    'Question List',
+                    'Question Create',
+                    'Question Edit',
+                    'Question Delete',
+                ]
+            ],
+            [
+                'permissions' => [
+                    'Quiz List',
+                    'Quiz Create',
+                    'Quiz Edit',
+                    'Quiz Delete',
+                ]
+            ],
         ];
 
 
         $roleSuperAdmin = Role::create(['name' => 'Admin']);
+        $roleInterviewee = Role::create(['name' => 'Interviewee']);
+        $roleInterviewer = Role::create(['name' => 'Interviewer']);
 
         // Create and Assign Permissions
         for ($i = 0; $i < count($permissions); $i++) {

@@ -64,9 +64,11 @@ class RoleController extends Controller
         }
 
         if (!empty($role)) {
+            notify()->success('Role Created Successfully!');
             return redirect()->route('roles.index');
         }
 
+        notify()->error('Something Went Wrong!');
         return back();
     }
 
@@ -87,9 +89,12 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        //
+        $data['title'] = "Role Edit";
+        $data['role'] = $role;
+        $data['permissions'] = Permission::all();
+        return view('backend.roles.edit',$data);
     }
 
     /**
@@ -101,7 +106,21 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:roles,name,'.$id
+        ]);
+
+        $role = Role::where('id',$id)->first();
+        $role->name = $request->name;
+
+        if($role->update()){
+            if (!empty($request->permissions)) {
+                notify()->success('Role Updated Successfully!');
+                $role->syncPermissions($request->permissions);
+            }
+            return redirect()->route("roles.index");
+        }
+        return back();
     }
 
     /**
