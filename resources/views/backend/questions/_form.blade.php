@@ -64,23 +64,11 @@
    </div>
 </div>
 
-<span id="writeroot"></span>
-
-<div id="readroot" style="display: none">
-        <button class="button flex ml-auto items-center justify-center bg-theme-6 text-white" type="button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"><i data-feather="minus-circle" class="h-4"></i></button>
-
-    <!----- Input ----->
-
-    <div class="flex flex-wrap items-center gap-4 mt-1">
-        <label class="flex flex-col sm:flex-row w-full"> Option 4 </label>
-            <input type="text" name="options[]" class="input-field input border border-gray-300" placeholder="Enter Option Value">
-            <div class="flex items-center text-gray-700">
-                <input type="checkbox" class="input border" id="vertical-checkbox-chris-evans" name="correct_answer[]" value="1" >
-                <label class="cursor-pointer select-none pl-1">Option 4</label>
-            </div>
-    </div>
-
-</div>
+<table id="myTable">
+    <tr>
+        <td></td>
+      </tr>
+</table>
 
 <div class="mt-3">
     <label>Multiple Answer</label>
