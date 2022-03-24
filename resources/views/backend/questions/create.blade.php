@@ -29,22 +29,34 @@
         </div>
     </div>
     @push('js')
+
     <script>
-        var counter = 5;
-        function create() {
-            counter++;
-            var newFields = document.getElementById('readroot').cloneNode(true);
-            newFields.id = '';
-            newFields.style.display = 'block';
-            var newField = newFields.childNodes;
-            for (var i=0;i<newField.length;i++) {
-                var theName = newField[i].name
-                if (theName)
-                    newField[i].name = theName + counter;
+        function deleteRow(btn) {
+            var rowCount = myTable.rows.length;
+            if (rowCount <= 1) {
+                window.alert("There is only row, that you can not delete.");
+            } else {
+                var row = btn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
             }
-            var insertHere = document.getElementById('writeroot');
-            insertHere.parentNode.insertBefore(newFields,insertHere);
-            document.getElementById('ov').innerText = counter;
+        }
+        // Add Row -
+        let counter = 5;
+        let counter2 = 5;
+        let optionValue = 5;
+        function create() {
+        var table = document.getElementById("myTable");
+        var rowCount = myTable.rows.length;
+
+        var row = table.insertRow(rowCount -1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.style.width="100%";
+
+        cell1.innerHTML = '<div class="items flex flex-wrap items-center gap-4 mt-1"><label class="flex flex-col sm:flex-row w-full cngval"> Option '+ counter++ +' </label><input type="text" name="options[]" class="input-field input border border-gray-300" placeholder="Enter Option Value"><div class="flex items-center text-gray-700"><input type="checkbox" class="input border" id="vertical-checkbox-chris-evans" name="correct_answer[]" value="'+ counter2++ +'" ><label class="cursor-pointer select-none pl-1 cngval">Option '+ optionValue++ +' </label></div></div>';
+
+        cell2.innerHTML = '<button onclick=\"deleteRow(this)\" type=\"button\" class=\"btn btn-danger\"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-theme-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /> </svg></button>';
+        
         }
     </script>
     @endpush
