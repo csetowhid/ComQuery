@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:Quiz List|Quiz Create|Quiz Edit|Quiz Delete', ['only' => ['index','show']]);
+         $this->middleware('permission:Quiz Create', ['only' => ['create','store']]);
+         $this->middleware('permission:Quiz Edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:Quiz Delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
